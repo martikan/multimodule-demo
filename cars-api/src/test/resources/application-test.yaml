@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testcars
+    username: cars
+    password: aaa
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    change-log: classpath:db/changelog/changelog-master.yaml
+
+logging:
+  level:
+    "[org.springframework.web]": ERROR
+    "[com.martikan.carrental.carsapi]": DEBUG
+    "[org.hibernate]": DEBUG
